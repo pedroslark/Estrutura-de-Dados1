@@ -11,6 +11,12 @@ Lista *inicializa() {
     return NULL;
 }
 
+Lista *cria(int v) {
+    Lista *p = (Lista*) malloc(sizeof(Lista));
+    p -> info = v;
+    return p;
+}
+
 int vazia(Lista *l) {
     if(l == NULL) {
         return 1;
@@ -24,6 +30,26 @@ Lista *insere(Lista* l, int i) {
     novo -> info = i;
     novo -> prox = l;
     return novo;
+}
+
+Lista *insere_ordenado(Lista *l, int v) {
+    Lista *novo = cria(v);
+    Lista *ant = NULL;
+    Lista *p = l;
+
+    while(p != NULL && p -> info < v) {
+        ant = p;
+        p = p -> prox;
+    }
+
+    if(ant == NULL) {
+        novo -> prox = l;
+        l = novo;
+    } else {
+        novo -> prox = ant -> prox;
+        ant -> prox = novo;
+    }
+    return l;
 }
 
 Lista *busca(Lista *l, int v) {
