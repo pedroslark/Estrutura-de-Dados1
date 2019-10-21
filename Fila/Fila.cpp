@@ -29,7 +29,7 @@ void libera(Fila *f) {
 
 void insere(FIla *f, float v) {
     if(incr(f -> fim) == f -> ini) {
-        cout << "Capacidade da fila extorou!" << endl;
+        cout << "A capacidade da fila foi excedida!" << endl;
         exit(1);
     }
     f -> vet[f -> fim] = v;

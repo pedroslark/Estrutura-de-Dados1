@@ -29,7 +29,7 @@ void libera(Pilha *p) {
 
 void push (Pilha *p, float v) {
     if(p -> n == MAX) {
-        cout << "Capacidade da pilha estorou!" << endl;
+        cout << "A capacidade da pilha foi excedida!" << endl;
         exit(1);
     }
     p -> vet[p -> n] = v;
